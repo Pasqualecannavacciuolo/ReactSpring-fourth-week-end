@@ -11,3 +11,41 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.father {
+  width: 500px;
+  height: 500px;
+  padding-top: 50px;
+  margin: auto auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.child {
+  background-color: aliceblue;
+  font-size: 24px;
+  padding: 50px;
+}
+
+.post-form {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  margin: auto auto;
+}
+
+.row h5{
+  text-align: start;
+}
+
+.row-input {
+  width: 150px;
+  height: 25px;
+  margin: 10px;
+}
+
+.post-button {
+  width: 150px;
+  height: 35px;
+  margin: auto auto;
+}
