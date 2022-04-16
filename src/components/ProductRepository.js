@@ -54,7 +54,7 @@ export const ProductRepository= () => {
         setProducts(products);
         setChanged(true);
         console.log(changed)
-        setChanged(false);
+        setChanged(false); 
       })
   }
 
