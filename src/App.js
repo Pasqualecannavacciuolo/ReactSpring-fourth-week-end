@@ -1,4 +1,6 @@
 import './App.css';
+import './components/OrdersRepository.css'
+import './components/ProductRepository.css'
 import { OrderRepository } from './components/OrdersRepository';
 import { ProductRepository } from './components/ProductRepository';
 import {
@@ -11,21 +13,23 @@ import { ShipmentsRepository } from './components/ShipmentsRepository';
 
 function App() {
   return (
+    <div className='App'>
     <Router>
       <div>
-        <ul>
-          <li>
-            <Link to="/">Products</Link>
-          </li>
-          <li>
-            <Link to="/orders">Orders</Link>
-          </li>
-          <li>
-            <Link to="/shipments">Shipments</Link>
-          </li>
-        </ul>
+        <nav className='toolbar'>
+          <ul>
+            <li>
+              <Link className='link' to="/">Products</Link>
+            </li>
+            <li>
+              <Link  className='link' to="/orders">Orders</Link>
+            </li>
+            <li>
+              <Link  className='link' to="/shipments">Shipments</Link>
+            </li>
+          </ul>
+        </nav>
 
-        <hr />
 
         {/*
           A <Switch> looks through all its children <Route>
@@ -47,6 +51,7 @@ function App() {
         </Switch>
       </div>
     </Router>
+    </div>
   );
 }
 

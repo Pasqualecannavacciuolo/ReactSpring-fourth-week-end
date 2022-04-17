@@ -1,3 +1,5 @@
+import './ProductRepository.css'
+
 import React, {useState, useEffect, createRef, useRef} from 'react'
 import axios from 'axios' 
 

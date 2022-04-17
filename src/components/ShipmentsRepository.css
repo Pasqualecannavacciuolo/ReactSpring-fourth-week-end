@@ -1,0 +1,125 @@
+::placeholder {
+    color: rgba(172, 172, 172, 0.635);
+  }
+  
+  .father-shipments {
+    width: 500px;
+    height: 500px;
+    padding-top: 50px;
+    margin: auto auto;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .shipments-child {
+    background-color: rgb(252, 216, 214);;
+    font-size: 24px;
+    padding: 50px;
+  }
+  
+  /* STYLE OF INSERT */
+  .shipments-post-form {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    margin: auto auto;
+    background: linear-gradient(#f857a6, #ff5858);
+    padding: 100px;
+    border-radius: 5px;
+  }
+  
+  .form-title {
+    color: aliceblue;
+    font-size: 26px;
+  }
+  
+  .form-child {
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-label {
+    font-size: 18px;
+    width: 100%;
+    text-align: start;
+    color: aliceblue;
+    margin-bottom: 10px;
+  }
+  
+  .form-input {
+    height: 45%;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+  }
+  /* GLOW EFFECT TO INPUT IF IS IN FOCUS */
+  .form-input:focus {
+    outline: none;
+    border-color: #7abbf0;
+    box-shadow: 0 0 15px #7abbf0;
+  }
+  
+  .shipments-post-button {
+    width: 150px;
+    height: 60px;
+    margin: auto auto;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: #fae85f;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+  }
+  /* SUBMIT BUTTON ANIMATION ON HOVER */
+  .shipments-post-button:hover {
+    background-color: white;
+    color: black;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+  }
+  
+  /* DELETE FORM */
+  .shipments-form-delete {
+    width: 500px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    margin: auto auto;
+    background: linear-gradient(#f857a6, #ff5858);
+    padding: 100px;
+    border-radius: 5px;
+    margin-top: 50px;
+  }
+  
+  .delete-child {
+    display: flex;
+    flex-direction: column;
+    height: 33%;
+    margin: 15px 0;
+  }
+  
+  .delete-label {
+    text-align: start;
+    font-size: 18px;
+    color: aliceblue;
+    height: 35px;
+  }
+  
+  .delete-input {
+    height: 45px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+  }
+  
+  .delete-input:focus {
+    outline: none;
+    border-color: #7abbf0;
+    box-shadow: 0 0 15px #7abbf0;
+  }

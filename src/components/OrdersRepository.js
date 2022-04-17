@@ -1,3 +1,4 @@
+import './OrdersRepository.css'
 import React, {useState, useEffect, createRef, useRef} from 'react'
 import axios from 'axios' 
 
@@ -93,6 +94,7 @@ export const OrderRepository= () => {
           <div className='form-child'>
             <label className='form-label'>ID</label>
               <input
+                placeholder='Insert ID...'
                 className='form-input'
                 name="id"
                 type="text"
@@ -100,8 +102,9 @@ export const OrderRepository= () => {
               />
           </div>
           <div className='form-child'>
-            <label className='form-label'>client</label>
+            <label className='form-label'>Client Reference</label>
             <input
+                placeholder='Insert Client Reference...'
                 className='form-input'
                 name="client"
                 type="text"
@@ -109,20 +112,26 @@ export const OrderRepository= () => {
               />
           </div>
           <div className='form-child'>
-            <input className='post-button' type="submit" value="Submit" />
+            <input className='order-post-button' type="submit" value="Submit" />
           </div>
         </form>
-        <form onSubmit={handleDeleteSubmit}>
-                <label>
-                    Id
-                    <input type="text" name="nome" onChange={handleChangeIdDel}  ref={useRef(idDel)}/>
-                </label>
-                    <input type="submit" value="Cancella" />
+
+        <form className='orders-form-delete' onSubmit={handleDeleteSubmit}>
+          <div className='delete-child'>
+            <h2 className='form-title'>Cancella un'ordine</h2>
+          </div>
+          <div className='delete-child'>
+            <label className='delete-label'>ID</label>
+            <input placeholder='ID da cancellare...' className='delete-input' type="text" name="nome" onChange={handleChangeIdDel}  ref={useRef(idDel)}/>
+          </div>
+          <div className='delete-child'>
+            <input className='order-post-button' type="submit" value="Cancella" />
+          </div>
         </form>
           {orders.length > 0 && orders.map(order =>
-              <div key={order.id} className="father">
-                  <div className='child'>ID: {order.id}</div>
-                  <div className='child'>clientRef: {order.clientRef}</div>
+              <div key={order.id} className="father-orders">
+                  <div className='orders-child'>ID: {order.id}</div>
+                  <div className='orders-child'>clientRef: {order.clientRef}</div>
               </div>
           )}
       </div>
