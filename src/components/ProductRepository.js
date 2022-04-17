@@ -67,37 +67,39 @@ export const ProductRepository= () => {
   return(
       <div>
         <form  className='post-form' onSubmit={HandleSubmit}>
-          <label className='row'>
-            ID
+        <div className='form-child'>
+          <h2 className='form-title'>Inserisci un nuovo prodotto</h2>
+        </div>
+          <div className='form-child'>
+            <label className='form-label'>ID</label>
+              <input
+                className='form-input'
+                name="id"
+                type="text"
+                onChange={handleChangeId}
+              />
+          </div>
+          <div className='form-child'>
+            <label className='form-label'>Name</label>
             <input
-              className='row-input'
-              name="id"
-              type="text"
-              onChange={handleChangeId}
-            />
-          </label>
-          <br />
-          <label className='row'>
-            Name
-            <input
-              className='row-input'
-              name="name"
-              type="text"
-              onChange={handleChangeName}
-            />
-          </label>
-          <br />
-          <label className='row'>
-          Quantity
-            
-            <input
-              className='row-input'
-              name="quantity"
-              type="number"
-              onChange={handleChangeQuantity}
-            />
-          </label>
-          <input className='post-button' type="submit" value="Submit" />
+                className='form-input'
+                name="name"
+                type="text"
+                onChange={handleChangeName}
+              />
+          </div>
+          <div className='form-child'>
+            <label className='form-label'>Quantity</label>
+              <input
+                className='form-input'
+                name="quantity"
+                type="number"
+                onChange={handleChangeQuantity}
+              />
+          </div>
+          <div className='form-child'>
+            <input className='post-button' type="submit" value="Submit" />
+          </div>
         </form>
           {products.length > 0 && products.map(product =>
               <div key={product.id} className="father">
