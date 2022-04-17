@@ -1,15 +1,18 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, createRef, useRef} from 'react'
 import axios from 'axios' 
 
 export const ProductRepository= () => {
+
+  // State for GET
   const [products, setProducts] = useState([]);
 
-  const [changed, setChanged] = useState(false);
-
+  // State for POST
   const [id, setId] = useState('');
   const [name, setName] = useState('');
   const [quantity, setQuantity] = useState(0);
-  
+  const [changed, setChanged] = useState(false);
+
+  let [idDel, setIdDel] = useState('');
   
 
   /* GET */
@@ -52,17 +55,36 @@ export const ProductRepository= () => {
 
     axios.post(`http://localhost:8080/api/v1/prodotto`, { id: product.id, name: product.name, quantity: product.quantity })
       .then(() => {
-        
         products.push(product);
-        
         setProducts(products);
-        
         setChanged(true); 
       })
       setChanged(false)
+  }// Fine handleSubmit for POST
+
+
+
+  /* DELETE */
+  const handleChangeIdDel = event => {
+    setIdDel(event.target.value);
+    idDel = React.createRef();
   }
 
-  
+  const handleDeleteSubmit = (e) => {
+    e.preventDefault();
+    const id1 = idDel;
+    console.log(id1);
+    axios.delete("http://localhost:8080/api/v1/prodotto/"+id1).then(() => {
+      for(let i=0; i<products.length; i++) {
+        if(products[i].id === id1) {
+          products.splice(i, 1);
+        }
+      }
+      setChanged(true);
+    });
+    setChanged(false);
+  }
+
 
   return(
       <div>
@@ -101,6 +123,13 @@ export const ProductRepository= () => {
             <input className='post-button' type="submit" value="Submit" />
           </div>
         </form>
+        <form onSubmit={handleDeleteSubmit}>
+                <label>
+                    Id
+                    <input type="text" name="nome" onChange={handleChangeIdDel}  ref={useRef(idDel)}/>
+                </label>
+                    <input type="submit" value="Cancella" />
+        </form>
           {products.length > 0 && products.map(product =>
               <div key={product.id} className="father">
                   <div className='child'>ID: {product.id}</div>
@@ -118,29 +147,8 @@ export const ProductRepository= () => {
     constructor(){
         super();
         this.id=React.createRef();
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDeleteSubmit = this.handleDeleteSubmit.bind(this);
     }
 
-    handleSubmit(e){
-        e.preventDefault();
-            const path = "http://localhost:8080/api/v1/prodotto/";
-            const id1 = this.id.current.value;
-            axios.delete(path +id1);
-            console.log(path);
-    }
-
-    render(){
-
-    return(<div>
-            <form onSubmit={this.handleSubmit}>
-                <label>
-                    Id
-                    <input type="text" name="nome" ref={this.id}/>
-                </label>
-                    <input type="submit" value="Cancella" />
-            </form>
-        </div>
-    )
-    }
 
 }
