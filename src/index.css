@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+::placeholder {
+  color: rgba(172, 172, 172, 0.635);
+}
+
 .father {
   width: 500px;
   height: 500px;
@@ -27,8 +31,8 @@ code {
   padding: 50px;
 }
 
-/* STYLE OF PRODUCT */
-.post-form {
+/* STYLE OF INSERT */
+.product-form {
   width: 500px;
   height: 500px;
   display: flex;
@@ -92,4 +96,44 @@ code {
   -webkit-transition: all 0.4s;
   -moz-transition: all 0.4s;
   transition: all 0.4s;
+}
+
+/* DELETE FORM */
+.product-form-delete {
+  width: 500px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  margin: auto auto;
+  background: linear-gradient(#4b6cb7, #182848);
+  padding: 100px;
+  border-radius: 5px;
+  margin-top: 50px;
+}
+
+.delete-child {
+  display: flex;
+  flex-direction: column;
+  height: 33%;
+  margin: 15px 0;
+}
+
+.delete-label {
+  text-align: start;
+  font-size: 18px;
+  color: aliceblue;
+  height: 35px;
+}
+
+.delete-input {
+  height: 45px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+.delete-input:focus {
+  outline: none;
+  border-color: #7abbf0;
+  box-shadow: 0 0 15px #7abbf0;
 }

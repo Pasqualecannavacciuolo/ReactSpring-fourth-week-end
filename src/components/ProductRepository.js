@@ -88,7 +88,9 @@ export const ProductRepository= () => {
 
   return(
       <div>
-        <form  className='post-form' onSubmit={HandleSubmit}>
+
+
+        <form className='product-form' onSubmit={HandleSubmit}>
         <div className='form-child'>
           <h2 className='form-title'>Inserisci un nuovo prodotto</h2>
         </div>
@@ -98,6 +100,7 @@ export const ProductRepository= () => {
                 className='form-input'
                 name="id"
                 type="text"
+                placeholder='Product ID...'
                 onChange={handleChangeId}
               />
           </div>
@@ -107,6 +110,7 @@ export const ProductRepository= () => {
                 className='form-input'
                 name="name"
                 type="text"
+                placeholder='Product name...'
                 onChange={handleChangeName}
               />
           </div>
@@ -116,6 +120,7 @@ export const ProductRepository= () => {
                 className='form-input'
                 name="quantity"
                 type="number"
+                placeholder='Quantity...'
                 onChange={handleChangeQuantity}
               />
           </div>
@@ -123,13 +128,22 @@ export const ProductRepository= () => {
             <input className='post-button' type="submit" value="Submit" />
           </div>
         </form>
-        <form onSubmit={handleDeleteSubmit}>
-                <label>
-                    Id
-                    <input type="text" name="nome" onChange={handleChangeIdDel}  ref={useRef(idDel)}/>
-                </label>
-                    <input type="submit" value="Cancella" />
+        
+
+        <form className='product-form-delete' onSubmit={handleDeleteSubmit}>
+          <div className='delete-child'>
+            <h2 className='form-title'>Cancella un prodotto</h2>
+          </div>
+          <div className='delete-child'>
+            <label className='delete-label'>ID</label>
+            <input placeholder='ID da cancellare...' className='delete-input' type="text" name="nome" onChange={handleChangeIdDel}  ref={useRef(idDel)}/>
+          </div>
+          <div className='delete-child'>
+            <input className='post-button' type="submit" value="Cancella" />
+          </div>
         </form>
+
+
           {products.length > 0 && products.map(product =>
               <div key={product.id} className="father">
                   <div className='child'>ID: {product.id}</div>
@@ -139,16 +153,4 @@ export const ProductRepository= () => {
           )}
       </div>
   );
-}
-
-  /* DELETE */
-  export class Delete extends React.Component{
-    
-    constructor(){
-        super();
-        this.id=React.createRef();
-        this.handleDeleteSubmit = this.handleDeleteSubmit.bind(this);
-    }
-
-
 }
