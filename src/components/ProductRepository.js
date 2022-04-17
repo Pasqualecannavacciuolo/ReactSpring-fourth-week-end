@@ -10,15 +10,24 @@ export const ProductRepository= () => {
   const [name, setName] = useState('');
   const [quantity, setQuantity] = useState(0);
   
+  
 
   /* GET */
   React.useEffect( () => {
-      const fetchData = async () => {
-          const response = await axios.get('http://localhost:8080/api/v1/prodotto');
-          setProducts(response.data);
-      }
-      //fetchData();
-  }, [changed, products]);
+      fetch('http://localhost:8080/api/v1/prodotto')
+      .then(response => {
+        if(response.ok) {
+          return response.json();
+        }
+        throw response;
+      })
+      .then(data => {
+        setProducts(data)
+      })
+      .catch(error => {
+        console.error("Errore durante il FETCH")
+      })  
+  }, []);
 
   
   /* POST */
@@ -33,9 +42,6 @@ export const ProductRepository= () => {
   }
 
   const HandleSubmit = event => {
-
-    
-
     event.preventDefault();
 
     const product = {
@@ -46,16 +52,14 @@ export const ProductRepository= () => {
 
     axios.post(`http://localhost:8080/api/v1/prodotto`, { id: product.id, name: product.name, quantity: product.quantity })
       .then(() => {
-        console.log("PRIMA")
-        console.log(products);
+        
         products.push(product);
-        console.log("DOPO")
-        console.log(products);
+        
         setProducts(products);
-        setChanged(true);
-        console.log(changed)
-        setChanged(false); 
+        
+        setChanged(true); 
       })
+      setChanged(false)
   }
 
   
